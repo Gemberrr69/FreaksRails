@@ -9,7 +9,6 @@ public class Triger : MonoBehaviour
         if (other.CompareTag("Car"))
         {
             Triggered?.Invoke();
-            Debug.Log("WORRRRK");   
         }
     }
 }
