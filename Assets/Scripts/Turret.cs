@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
-
 public class Turret : MonoBehaviour
 {
-    void Start()
-    {
-    }
+    [SerializeField]
+    public float rotationSpeed = 5f;
+
+    private Quaternion targetRotation;
+    private bool hasTarget = false;
 
     void Update()
     {
@@ -15,17 +16,28 @@ public class Turret : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 Debug.Log("Попал");
-                LookAtTargetYOnly(hit.point);
+                SetTargetRotation(hit.point);
             }
-            else 
+            else
             {
                 Debug.Log("Не попал");
             }
         }
+
+        if (hasTarget)
+        {
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                targetRotation,
+                rotationSpeed * Time.deltaTime
+            );
+        }
     }
-    void LookAtTargetYOnly(Vector3 targetPosition)
+
+    void SetTargetRotation(Vector3 targetPosition)
     {
         Vector3 lookAtPosition = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
-        transform.LookAt(lookAtPosition);
+        targetRotation = Quaternion.LookRotation(lookAtPosition - transform.position);
+        hasTarget = true;
     }
 }
