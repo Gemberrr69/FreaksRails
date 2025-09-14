@@ -23,6 +23,19 @@ public class Turret : MonoBehaviour
                 Debug.Log("Не попал");
             }
         }
+        else if (Input.GetMouseButton(0))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                Debug.Log("Попал");
+                SetTargetRotation(hit.point);
+            }
+            else
+            {
+                Debug.Log("Не попал");
+            }
+        }
 
         if (hasTarget)
         {

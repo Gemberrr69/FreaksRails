@@ -466,6 +466,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &421512162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 421512163}
+  m_Layer: 0
+  m_Name: _BulletT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &421512163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421512162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.884, z: 2.441}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1121850042}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &485811115
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +685,10 @@ PrefabInstance:
     - {fileID: 6705745403702995561, guid: 027d3d2e3059a8a4497ef9f01a9ac5cc, type: 3}
     - {fileID: 3336406643087354461, guid: 027d3d2e3059a8a4497ef9f01a9ac5cc, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6664617895696904125, guid: 027d3d2e3059a8a4497ef9f01a9ac5cc, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 421512163}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3226583421603586234, guid: 027d3d2e3059a8a4497ef9f01a9ac5cc, type: 3}
       insertIndex: -1
@@ -662,6 +696,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 595325539508656204, guid: 027d3d2e3059a8a4497ef9f01a9ac5cc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1121850041}
+    - targetCorrespondingSourceObject: {fileID: 595325539508656204, guid: 027d3d2e3059a8a4497ef9f01a9ac5cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1121850045}
   m_SourcePrefab: {fileID: 100100000, guid: 027d3d2e3059a8a4497ef9f01a9ac5cc, type: 3}
 --- !u!1 &832575517
 GameObject:
@@ -782,6 +819,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+--- !u!4 &1121850042 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6664617895696904125, guid: 027d3d2e3059a8a4497ef9f01a9ac5cc, type: 3}
+  m_PrefabInstance: {fileID: 634696086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1121850045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121850037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80406d44b008c434e88b09878e805cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponM: {fileID: 421512163}
+  _projectile: {fileID: 580098387586911353, guid: 546dc1016f460a94299f05cf6c4ca271, type: 3}
+  _forceMode: 1
+  _force: 100
+  _fireRate: 0.05
+  _bulletLifetime: 5
 --- !u!1 &1134822021
 GameObject:
   m_ObjectHideFlags: 0
