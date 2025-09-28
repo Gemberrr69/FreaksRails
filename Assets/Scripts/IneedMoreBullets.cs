@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IneedMoreBullets : MonoBehaviour
@@ -11,8 +12,13 @@ public class IneedMoreBullets : MonoBehaviour
     [SerializeField] private float _force = 20f;
     [SerializeField] private float _fireRate = 0.2f;
     [SerializeField] private float _bulletLifetime = 5f;
-
+    private ObjectPool<Projectile> _bullpool;
     private float _nextFireTime = 0f;
+    private void Start()
+    {
+        _bullpool = new ObjectPool<Projectile>(_projectile);
+
+    }
 
     void Update()
     {
@@ -27,14 +33,22 @@ public class IneedMoreBullets : MonoBehaviour
     {
         if (_projectile != null && _weaponM != null)
         {
-            var projectile = Instantiate(_projectile, _weaponM.position, _weaponM.rotation);
+            //var projectile = instantiate(_projectile, _weaponm.position, _weaponm.rotation);
+            var projectile = _bullpool.GetObject();
+            projectile.SetPool(_bullpool);
+            projectile.transform.position = _weaponM.position;
+            projectile.transform.rotation = _weaponM.rotation;
+            projectile.gameObject.SetActive(true);
 
             if (projectile.Rigidbody != null)
             {
+                projectile.Rigidbody.angularVelocity = Vector3.zero;
+                projectile.Rigidbody.linearVelocity = Vector3.zero;
                 projectile.Rigidbody.AddForce(_weaponM.up * _force, _forceMode);
             }
 
-            Destroy(projectile.gameObject, _bulletLifetime);
+            //Destroy(projectile.gameObject, _bulletLifetime);
         }
     }
+
 }

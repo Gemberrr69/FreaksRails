@@ -8,9 +8,8 @@ TagManager:
   - Triger
   - Enemy
   - Platform
-  - Triger1
-  - Triger2
-  - Triger3
+  - Zombie
+  - Bullet
   layers:
   - Default
   - TransparentFX
